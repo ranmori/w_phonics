@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:w_phonics/widgets/group_item.dart';
 
 class LessonsPage extends StatefulWidget {
   const LessonsPage({super.key});
@@ -12,13 +13,19 @@ class _LessonsPageState extends State<LessonsPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 16.0),
-              child: _buildLessonsAppBar(),
-            ),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: _buildLessonsAppBar(),
+              ),
+          
+              GroupItem(),
+              GroupItem(),
+              GroupItem(),
+            ],
+          ),
         ),
       ),
     );

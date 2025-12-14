@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class PupilsPage extends StatelessWidget {
@@ -13,17 +12,18 @@ class PupilsPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
-          children: [
+          children: const [
             _PupilTile(name: 'Amina'),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             _PupilTile(name: 'Mohamed'),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
             _PupilTile(name: 'Fatima'),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+        },
         child: const Icon(Icons.add),
       ),
     );
@@ -31,8 +31,7 @@ class PupilsPage extends StatelessWidget {
 }
 
 class _PupilTile extends StatelessWidget {
-  const _PupilTile({required this.name});
-
+  const _PupilTile({super.key, required this.name});
   final String name;
 
   @override
@@ -40,8 +39,8 @@ class _PupilTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
+        color: Theme.of(context).cardColor, 
         borderRadius: BorderRadius.circular(16),
-        color: Theme.of(context).cardColor,
       ),
       child: Row(
         children: [

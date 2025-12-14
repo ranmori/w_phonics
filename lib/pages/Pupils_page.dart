@@ -9,47 +9,54 @@ class PupilsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pupils'),
-        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            _PupilTile(name: 'Amina'),
+            const SizedBox(height: 12),
+            _PupilTile(name: 'Mohamed'),
+            const SizedBox(height: 12),
+            _PupilTile(name: 'Fatima'),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          
-        },
+        onPressed: () {},
         child: const Icon(Icons.add),
-      ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: const [
-          PupilCard(name: 'Amina'),
-          PupilCard(name: 'Mohamed'),
-          PupilCard(name: 'Fatima'),
-        ],
       ),
     );
   }
 }
 
-class PupilCard extends StatelessWidget {
-  const PupilCard({super.key, required this.name});
+class _PupilTile extends StatelessWidget {
+  const _PupilTile({required this.name});
 
   final String name;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
+        color: Theme.of(context).cardColor,
       ),
-      margin: const EdgeInsets.only(bottom: 12),
-      child: ListTile(
-        leading: const CircleAvatar(
-          child: Icon(Icons.person),
-        ),
-        title: Text(name),
-        trailing: const Icon(Icons.arrow_forward_ios),
-        onTap: () {
-          
-        },
+      child: Row(
+        children: [
+          const CircleAvatar(
+            child: Icon(Icons.person),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              name,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+          ),
+          const Icon(Icons.chevron_right),
+        ],
       ),
     );
   }
